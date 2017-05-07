@@ -1,2 +1,2 @@
-# Stanford-Calculator
-iOS app "Calculator" that has been developed during Stanford University course CS 193P.
+# Calculator
+iOS app that has been developed during Stanford University course CS 193P.
