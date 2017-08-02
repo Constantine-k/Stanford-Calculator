@@ -76,6 +76,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B5E43FAB1F321B94001B9979 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5FCD3991EA14D3D0077FB79 /* CalculatorBrain.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B5E43FAC1F321BA2001B9979 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5FCD36E1EA1162F0077FB79 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B5E43FAD1F321BB0001B9979 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5FCD36C1EA1162F0077FB79 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		B5FCD35E1EA1162F0077FB79 = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +123,9 @@
 		B5FCD3691EA1162F0077FB79 /* Lecture 1 Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				B5FCD3991EA14D3D0077FB79 /* CalculatorBrain.swift */,
-				B5FCD36C1EA1162F0077FB79 /* ViewController.swift */,
-				B5FCD36E1EA1162F0077FB79 /* Main.storyboard */,
+				B5E43FAB1F321B94001B9979 /* Model */,
+				B5E43FAD1F321BB0001B9979 /* Controller */,
+				B5E43FAC1F321BA2001B9979 /* View */,
 				B5FCD3981EA14CEE0077FB79 /* Supporting files */,
 			);
 			path = "Lecture 1 Calculator";
@@ -515,6 +539,7 @@
 				B5FCD3911EA1162F0077FB79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5FCD3921EA1162F0077FB79 /* Build configuration list for PBXNativeTarget "Lecture 1 CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +548,7 @@
 				B5FCD3941EA1162F0077FB79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B5FCD3951EA1162F0077FB79 /* Build configuration list for PBXNativeTarget "Lecture 1 CalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +557,7 @@
 				B5FCD3971EA1162F0077FB79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

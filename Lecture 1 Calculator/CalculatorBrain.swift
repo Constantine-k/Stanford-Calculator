@@ -10,9 +10,11 @@ import Foundation
 
 struct CalculatorBrain {
     
+    /// Accumulates value in calculator
     private var accumulator: Double?
     
-    private enum Operation {
+    /// All possible operations types
+    enum Operation {
         case constant(Double)
         case unaryOperation((Double) -> Double)
         case binaryOperation((Double, Double) -> Double)
@@ -20,12 +22,14 @@ struct CalculatorBrain {
         case clear
     }
     
-    private var operations: Dictionary<String, Operation> = [
+    /// List of all operations implementation
+    let operations: Dictionary<String, Operation> = [
         "π": Operation.constant(Double.pi),
         "e": Operation.constant(M_E),
         "√": Operation.unaryOperation(sqrt),
         "cos": Operation.unaryOperation(cos),
         "±": Operation.unaryOperation({ -$0 }),
+        "%": Operation.unaryOperation({ $0 * 0.01 }),
         "x²": Operation.unaryOperation({ $0 * $0 }),
         "x³": Operation.unaryOperation({ $0 * $0 * $0 }),
         "×": Operation.binaryOperation({ $0 * $1 }),
@@ -37,8 +41,10 @@ struct CalculatorBrain {
         "C": Operation.clear
     ]
     
+    /// Informs while operation result is pending
     private var resultIsPending = false
     
+    /// A text that shows operations history
     var description = ""
     
     mutating func performOperation(_ symbol: String) {
@@ -82,16 +88,19 @@ struct CalculatorBrain {
         }
     }
     
+    /// Sets operand value
     mutating func setOperand(_ operand: Double) {
         accumulator = operand
     }
     
+    /// Returns result
     var result: Double? {
         get {
             return accumulator
         }
     }
     
+    /// Returns 'true' if operation result is pending
     var resultIsPendingGet: Bool {
         get {
             return resultIsPending
