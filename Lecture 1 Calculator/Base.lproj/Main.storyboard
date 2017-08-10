@@ -45,7 +45,7 @@
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <state key="normal" title="C"/>
                                                         <connections>
-                                                            <action selector="performOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EmU-Dg-HWd"/>
+                                                            <action selector="clearCalculator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dwy-yD-3ZY"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qa-WV-SRH">
