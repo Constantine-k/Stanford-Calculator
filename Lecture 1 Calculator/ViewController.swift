@@ -72,13 +72,10 @@ class ViewController: UIViewController {
     
     /// Clear button touch implementation
     @IBAction func clearCalculator(_ sender: UIButton) {
-        if let mathematicalSymbol = sender.currentTitle {
-            brain.performOperation(mathematicalSymbol)
-            display.text = "0"
-            sequenceOfOperations.text = ""
-        }
+        brain.clearCalculator()
+        display.text = "0"
+        sequenceOfOperations.text = ""
     }
-    
     
 }
 
