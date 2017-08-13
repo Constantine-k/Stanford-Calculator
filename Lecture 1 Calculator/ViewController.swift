@@ -79,7 +79,7 @@ class ViewController: UIViewController {
         if let description = brain.description {
             operationsSequenceDisplay.text = description + (brain.resultIsPending ? "…" : "=")
         } else {
-            operationsSequenceDisplay.text = ""
+            operationsSequenceDisplay.text = " "
         }
     }
     
@@ -98,10 +98,44 @@ class ViewController: UIViewController {
         brain.clearCalculator()
         userIsInTheMiddleOfTyping = false
         display.text = "0"
-        operationsSequenceDisplay.text = ""
+        operationsSequenceDisplay.text = " "
         mValue = nil
         mDisplay.text = "M = 0"
     }
     
+    /// Undo button touch implementation
+    @IBAction func undoTouch(_ sender: UIButton) {
+        func removeLastOperationFromBrain() {
+            brain.removeLastOperation()
+            if let result = brain.evaluate(using: mValue).result {
+                displayValue = result
+            }
+            
+            if let description = brain.description {
+                operationsSequenceDisplay.text = description + (brain.resultIsPending ? "…" : "=")
+            } else {
+                operationsSequenceDisplay.text = " "
+            }
+            
+            if brain.operationsSequenceIsEmpty {
+                display.text = " "
+                operationsSequenceDisplay.text = " "
+            }
+        }
+        
+        if userIsInTheMiddleOfTyping {
+            if let displayText = display.text {
+                if !displayText.isEmpty {
+                    display.text = displayText.substring(to: displayText.index(before: displayText.endIndex))
+                } else {
+                    userIsInTheMiddleOfTyping = false
+                    removeLastOperationFromBrain()
+                }
+            }
+            
+        } else {
+            removeLastOperationFromBrain()
+        }
+    }
 }
 

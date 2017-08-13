@@ -7,6 +7,16 @@
 //
 import Foundation
 
+func cot(x : Double) -> Double {
+    if x > 1.0 {
+        return atan(1.0/x)
+    } else if x < -1.0 {
+        return Double.pi + atan(1.0/x)
+    } else {
+        return Double.pi / 2 - atan(x)
+    }
+}
+
 struct CalculatorBrain {
     
     /// All possible operations types
@@ -24,6 +34,8 @@ struct CalculatorBrain {
         "√": Operation.unaryOperation(sqrt, { "√(" + $0 + ")" }),
         "sin": Operation.unaryOperation(sin, { "sin(" + $0 + ")" }),
         "cos": Operation.unaryOperation(cos, { "cos(" + $0 + ")" }),
+        "tan": Operation.unaryOperation(tan, { "tan(" + $0 + ")" }),
+        "cot": Operation.unaryOperation(cot, { "cot(" + $0 + ")" }),
         "±": Operation.unaryOperation({ -$0 }, { "-(" + $0 + ")" }),
         "×": Operation.binaryOperation(*, { $0 + "×" + $1 }),
         "÷": Operation.binaryOperation(/, { $0 + "÷" + $1 }),
@@ -154,5 +166,16 @@ struct CalculatorBrain {
     /// Clear all calculator data
     mutating func clearCalculator() {
         operationsSequence.removeAll()
+    }
+    
+    /// Removes last operation from operation history
+    mutating func removeLastOperation() {
+        if !operationsSequence.isEmpty {
+            operationsSequence.removeLast()
+        }
+    }
+    
+    var operationsSequenceIsEmpty: Bool {
+        return operationsSequence.isEmpty
     }
 }
